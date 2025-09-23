@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Evolución de los Sistemas Computacionales</title>
+	<link rel="stylesheet" href="CSS/style1.css">
+	<link rel="shortcut icon" href="imagenesPagina/icono.ico" type="image/x-icon">
+</head>
+
+<body class="body">
+
+
+
+	<section class="accordion-section">
+		<button class="button" onclick="location.href='index.html'">
+			<div class="button-outer">
+				<div class="button-inner">
+					<span>Volver</span>
+				</div>
+			</div>
+		</button>
+
+		<h2>Evolución de los Sistemas Computacionales</h2>
+
+		<div class="accordion">
+
+			<!-- Monolítico -->
+			<div class="accordion-item">
+				<button class="accordion-header">🧱 Monolítico</button>
+				<div class="accordion-content">
+					<p><strong>Concepto:</strong> Una arquitectura monolítica concentra toda la funcionalidad de la
+						aplicación en una sola unidad de despliegue. Esto incluye la interfaz de usuario, la lógica de
+						negocio y el acceso a datos, todo dentro del mismo proceso. Es fácil de desarrollar y probar en
+						etapas iniciales, pero conforme crece el sistema, se vuelve difícil de escalar, mantener y
+						desplegar. Un cambio pequeño puede requerir recompilar y redeplegar toda la aplicación.</p>
+					<img src="C:\Users\jbart\Downloads\monolitica.webp" width="200" height="150">
+				</div>
+			</div>
+
+			<!-- Microservicios -->
+			<div class="accordion-item">
+				<button class="accordion-header">🔗 Microservicios</button>
+				<div class="accordion-content">
+					<p><strong>Concepto:</strong> Los microservicios son tanto un estilo de arquitectura como un modo de
+						programar software. Con los microservicios, las aplicaciones se dividen en sus elementos más
+						pequeños e independientes entre sí. A diferencia del enfoque tradicional y monolítico de las
+						aplicaciones, en el que todo se compila en una sola pieza, los microservicios son elementos
+						independientes que funcionan en conjunto para llevar a cabo las mismas tareas.</p>
+					<img src="C:\Users\jbart\Downloads\MicroServicios.png" width="200" height="150">
+				</div>
+			</div>
+
+			<!-- NFS -->
+			<div class="accordion-item">
+				<button class="accordion-header">🌐 Network File System (NFS)</button>
+				<div class="accordion-content">
+					<p><strong>Concepto:</strong> Network File System (sistema de archivos de red), o NFS, es un
+						protocolo de nivel de aplicación, según el Modelo OSI. Es utilizado para sistemas de archivos
+						distribuido en un entorno de red de ordenadores de área local. Posibilita que distintos sistemas
+						conectados a una misma red accedan a ficheros remotos como si se tratara de locales.</p>
+					<img src="C:\Users\jbart\Downloads\NFS.webp" width="200" height="150">
+				</div>
+			</div>
+
+			<!-- Arquitectura en Capas -->
+			<div class="accordion-item">
+				<button class="accordion-header">📚 Arquitectura en Capas</button>
+				<div class="accordion-content">
+					<p><strong>Concepto:</strong> Organiza el sistema en capas jerárquicas, donde cada capa tiene una
+						responsabilidad específica. Las más comunes son: presentación (UI), lógica de negocio, acceso a
+						datos y persistencia. Cada capa interactúa solo con la adyacente, lo que facilita la separación
+						de responsabilidades, el mantenimiento y las pruebas. Es ampliamente usada en aplicaciones
+						empresariales tradicionales.</p>
+					<img src="C:\Users\jbart\Downloads\capas.webp" width="200" height="150">
+				</div>
+			</div>
+
+			<!-- Arquitectura Hexagonal -->
+			<div class="accordion-item">
+				<button class="accordion-header">🔶 Arquitectura Hexagonal</button>
+				<div class="accordion-content">
+					<p><strong>Concepto:</strong> Propone una separación clara entre el núcleo de negocio (dominio) y
+						las interfaces externas (UI, bases de datos, servicios externos). El núcleo se comunica con el
+						exterior a través de “puertos” y “adaptadores”, lo que permite cambiar tecnologías sin afectar
+						la lógica central. Es ideal para sistemas que requieren alta testabilidad, flexibilidad y
+						desacoplamiento.</p>
+					<img src="C:\Users\jbart\Downloads\hexagonal.webp" width="200" height="150">
+				</div>
+			</div>
+
+			<!-- Arquitectura Orientada a Eventos -->
+			<div class="accordion-item">
+				<button class="accordion-header">📡 Arquitectura Orientada a Eventos</button>
+				<div class="accordion-content">
+					<p><strong>Concepto:</strong> En esta arquitectura, los componentes del sistema se comunican
+						mediante eventos. Un componente emite un evento, y otros lo escuchan y reaccionan. Esto permite
+						una alta escalabilidad y flexibilidad, especialmente en sistemas distribuidos o en tiempo real.
+						Es útil cuando las acciones del usuario o del sistema deben desencadenar múltiples respuestas
+						asincrónicas.</p>
+					<img src="C:\Users\jbart\Downloads\eventos.png" width="200" height="150">
+				</div>
+			</div>
+
+			<!-- SOA -->
+			<div class="accordion-item">
+				<button class="accordion-header">🧩 Arquitectura Orientada a Servicios (SOA)</button>
+				<div class="accordion-content">
+					<p><strong>Concepto:</strong> SOA organiza el sistema como un conjunto de servicios interoperables
+						que se comunican mediante protocolos estándar como SOAP o REST. Cada servicio representa una
+						unidad funcional del negocio. Aunque comparte principios con los microservicios, SOA tiende a
+						ser más pesado y formal, con énfasis en contratos y gobernanza. Fue muy popular en entornos
+						corporativos antes del auge de los microservicios.</p>
+					<img src="C:\Users\jbart\Downloads\SOA.png" width="200" height="150">
+				</div>
+			</div>
+
+			<!-- Serverless -->
+			<div class="accordion-item">
+				<button class="accordion-header">☁️ Arquitectura Serverless</button>
+				<div class="accordion-content">
+					<p><strong>Concepto:</strong> Permite construir aplicaciones mediante funciones que se ejecutan bajo
+						demanda en la nube, sin necesidad de gestionar servidores. Cada función responde a eventos
+						específicos (HTTP, colas, cron, etc.) y escala automáticamente. Es ideal para tareas puntuales o
+						backend ligero, aunque puede ser limitada para sistemas complejos o con alta persistencia de
+						estado.</p>
+					<img src="C:\Users\jbart\Downloads\servereless.png" width="200" height="150">
+				</div>
+			</div>
+
+			<!-- Component-Based -->
+			<div class="accordion-item">
+				<button class="accordion-header">🧱 Arquitectura Basada en Componentes</button>
+				<div class="accordion-content">
+					<p><strong>Concepto:</strong> El sistema se construye a partir de componentes independientes y
+						reutilizables, cada uno encapsulando una funcionalidad específica. Es común en desarrollo de
+						juegos (como Unity o LibGDX), donde los objetos del juego se componen de múltiples módulos
+						(renderizado, física, lógica, etc.). Facilita la extensibilidad y el mantenimiento modular.</p>
+					<img src="C:\Users\jbart\Downloads\componentes.webp" width="200" height="150">
+				</div>
+			</div>
+
+			<!-- Clean Architecture -->
+			<div class="accordion-item">
+				<button class="accordion-header">🧼 Arquitectura Limpia</button>
+				<div class="accordion-content">
+					<p><strong>Concepto:</strong> Propone una estructura concéntrica donde el núcleo del sistema
+						(entidades y casos de uso) está completamente aislado de frameworks, bases de datos y UI. Las
+						dependencias siempre apuntan hacia el núcleo, lo que permite alta testabilidad, flexibilidad y
+						longevidad del software. Es ideal para proyectos que requieren una base sólida y mantenible a
+						largo plazo.</p>
+					<img src="C:\Users\jbart\Downloads\clean-architecture.png" width="200" height="150">
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<script>
+		const headers = document.querySelectorAll('.accordion-header');
+		headers.forEach(header => {
+			header.addEventListener('click', () => {
+				const content = header.nextElementSibling;
+				content.classList.toggle('active');
+				header.classList.toggle('open');
+			});
+		});
+	</script>
+
+</body>
+
+</html>
