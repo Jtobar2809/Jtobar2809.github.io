@@ -83,7 +83,7 @@
         </div>
     </header>
 
-    <!-- Contenido Principal con Aside -->
+    <!-- Contenido -->
     <main class="main-container">
         <div class="Titulo">
             <h1>Restaurante Familiar</h1>
@@ -153,7 +153,7 @@
             </button>
 
             <!-- Aside -->
-            <aside class="restaurant-aside" id="restaurantAside">
+            <aside class="restaurant-aside hidden" id="restaurantAside">
                 <div class="aside-header">
                     <h3>🔥 Ofertas Especiales</h3>
                     <button class="close-aside" onclick="toggleAside()">
@@ -189,8 +189,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Eliminé el botón de reserva que no funcionaba -->
             </aside>
         </div>
     </main>
@@ -242,46 +240,46 @@
     </script>
 
     <script>
-    // Función para mostrar/ocultar el aside
-    function toggleAside() {
-        const aside = document.getElementById('restaurantAside');
-        const toggleBtn = document.querySelector('.aside-toggle-btn');
-        const contentWrapper = document.querySelector('.content-wrapper');
-        
-        aside.classList.toggle('hidden');
-        contentWrapper.classList.toggle('aside-hidden');
-        
-        // Cambiar el icono del botón flotante
-        const icon = toggleBtn.querySelector('i');
-        if (aside.classList.contains('hidden')) {
-            icon.className = 'fas fa-fire';
-        } else {
-            icon.className = 'fas fa-times';
-        }
-    }
-    
-    // Cerrar aside al hacer clic fuera de él (solo en móviles)
-    document.addEventListener('click', function(event) {
-        const aside = document.getElementById('restaurantAside');
-        const toggleBtn = document.querySelector('.aside-toggle-btn');
-        
-        if (window.innerWidth <= 992) {
-            if (!aside.contains(event.target) && !toggleBtn.contains(event.target) && !aside.classList.contains('hidden')) {
-                toggleAside();
-            }
-        }
-    });
-    
-    // Cerrar aside con la tecla Escape
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
+        // Función para mostrar/ocultar el aside
+        function toggleAside() {
             const aside = document.getElementById('restaurantAside');
-            if (!aside.classList.contains('hidden')) {
-                toggleAside();
+            const toggleBtn = document.querySelector('.aside-toggle-btn');
+            const contentWrapper = document.querySelector('.content-wrapper');
+
+            aside.classList.toggle('hidden');
+            contentWrapper.classList.toggle('aside-hidden');
+
+            // Cambiar el icono del botón flotante
+            const icon = toggleBtn.querySelector('i');
+            if (aside.classList.contains('hidden')) {
+                icon.className = 'fas fa-fire';
+            } else {
+                icon.className = 'fas fa-times';
             }
         }
-    });
-</script>
+
+        // Cerrar aside al hacer clic fuera de él (solo en móviles)
+        document.addEventListener('click', function (event) {
+            const aside = document.getElementById('restaurantAside');
+            const toggleBtn = document.querySelector('.aside-toggle-btn');
+
+            if (window.innerWidth <= 992) {
+                if (!aside.contains(event.target) && !toggleBtn.contains(event.target) && !aside.classList.contains('hidden')) {
+                    toggleAside();
+                }
+            }
+        });
+
+        // Cerrar aside con la tecla Escape
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                const aside = document.getElementById('restaurantAside');
+                if (!aside.classList.contains('hidden')) {
+                    toggleAside();
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

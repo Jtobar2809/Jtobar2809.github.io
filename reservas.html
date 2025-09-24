@@ -14,13 +14,7 @@
             style="color: white ; font-family: Georgia, 'Times New Roman', Times, serif; font: Georgia; font-size: 20px;">
             <img src="imagenesPagina/icono.ico"
                 style="width: 30px; height: 30px; top: 00px; right: 9px; z-index: 1000; border: none; border-radius: 5px; cursor: pointer;"
-                alt="Icono de la pagina"> </img> BBQ
-
-
-
-
-
-
+                alt="Icono de la pagina"> BBQ
 
             <button id="toggleAudio" onclick="toggleAudio()"
                 style="height: 40px ;position: fixed; top: 00px; right: 10px; z-index: 1000; background-color: rgb(121, 2, 2); border: none; padding: 5px; border-radius: 5px; cursor: pointer; color : white; ">
@@ -31,36 +25,11 @@
                 <source src="Audios/sonidoCarne.mp3" type="audio/mpeg">
                 <source src="Audios/sonidoCarne.ogg" type="audio/ogg">
             </audio>
-
-            <script>
-                let audioActivo = false;
-
-                function toggleAudio() {
-                    const audio = document.getElementById('audioFondo');
-                    const boton = document.getElementById('toggleAudio');
-
-                    if (!audioActivo) {
-                        audio.play();
-                        boton.textContent = '🔊 ON';
-                        audioActivo = true;
-                    } else {
-                        audio.pause();
-                        boton.textContent = '🔊 OFF';
-                        audioActivo = false;
-                    }
-                }
-            </script>
-
         </div>
-
-
-
-
-
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="imagenesPagina\logo.jpg " width="70px" height="70px"
+                <a class="navbar-brand" href="#"><img src="imagenesPagina/logo.jpg" width="70px" height="70px"
                         alt=""></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -69,33 +38,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#mision">Mision</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#mision">Vision</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#video">Galeria</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="reservas.html">Reservas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="domicilios.html">Domicilio</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="menu.html">Menú</a></li>
+                        <li class="nav-item"><a class="nav-link" href="reservas.html">Reservas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="domicilios.html">Domicilios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Pagina4.html">Acordeon</a></li>
                     </ul>
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="¿Buscasbas Algo?"
-                            aria-label="search" />
-                        <button class="btnSearch" type="">Buscar</button>
+                        <input class="form-control me-2" type="search" placeholder="¿Buscas algo?" aria-label="search">
+                        <button class="btnSearch" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -104,11 +55,10 @@
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="imagenesCarrusel/asado.jpg" class="d-block w-100" alt="..." height="300px" width="1200px">
+                    <img src="imagenesCarrusel/asado.jpg" class="d-block w-100" alt="..." height="300px">
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
-                    <img src="imagenesCarrusel/asado1.jpg" class="d-block w-100" alt="..." height="300px"
-                        width="1200px">
+                    <img src="imagenesCarrusel/asado1.jpg" class="d-block w-100" alt="..." height="300px">
                 </div>
                 <div class="carousel-item">
                     <img src="imagenesCarrusel/asado2.jpg" class="d-block w-100" alt="..." height="300px">
@@ -128,13 +78,6 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-            </script>
-
     </header>
 
     <div class="Titulo">
@@ -206,46 +149,46 @@
 
                 <button type="submit" class="btn-formulario">Reservar Mesa</button>
             </form>
-                <!-- Agrega jsPDF antes del script de tu formulario -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-                <script>
-                    document.getElementById('formReservacion').addEventListener('submit', function (event) {
-                        event.preventDefault();
-    
-                        let valid = true;
-                        const form = event.target;
-                        // Validación manual
-                        Array.from(form.elements).forEach(el => {
-                            if (el.required) {
-                                if (!el.value) {
-                                    valid = false;
-                                    el.nextElementSibling.style.display = 'inline';
-                                } else {
-                                    el.nextElementSibling.style.display = 'none';
-                                }
+            <!-- Agrega jsPDF antes del script de tu formulario -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+            <script>
+                document.getElementById('formReservacion').addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    let valid = true;
+                    const form = event.target;
+
+                    // Validación manual
+                    Array.from(form.elements).forEach(el => {
+                        if (el.required) {
+                            if (!el.value) {
+                                valid = false;
+                                el.nextElementSibling.style.display = 'inline';
+                            } else {
+                                el.nextElementSibling.style.display = 'none';
                             }
-                            if (el.type === 'email' && el.value) {
-                                // Simple email validation
-                                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)) {
-                                    valid = false;
-                                    el.nextElementSibling.textContent = 'Ingrese un correo válido.';
-                                    el.nextElementSibling.style.display = 'inline';
-                                }
+                        }
+                        if (el.type === 'email' && el.value) {
+                            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)) {
+                                valid = false;
+                                el.nextElementSibling.textContent = 'Ingrese un correo válido.';
+                                el.nextElementSibling.style.display = 'inline';
                             }
-                        });
-    
-                        if (!valid) return;
-    
-                        const nombre = form.nombreReservacion.value;
-                        const telefono = form.telefonoReservacion.value;
-                        const fecha = form.fechaReservacion.value;
-                        const hora = form.horaReservacion.value;
-                        const personas = form.personasReservacion.value;
-                        const comentarios = form.comentariosReservacion.value;
-                        const correo = form.correoReservacion.value;
-    
-                        // Generar PDF
-                        const mensaje = `Reserva a nombre de:\n
+                        }
+                    });
+
+                    if (!valid) return;
+
+                    const nombre = form.nombreReservacion.value;
+                    const telefono = form.telefonoReservacion.value;
+                    const fecha = form.fechaReservacion.value;
+                    const hora = form.horaReservacion.value;
+                    const personas = form.personasReservacion.value;
+                    const comentarios = form.comentariosReservacion.value;
+                    const correo = form.correoReservacion.value;
+
+                    // Generar PDF
+                    const mensaje = `Reserva a nombre de:\n
     Nombre: ${nombre}\n
     Teléfono: ${telefono}\n
     Fecha: ${fecha}\n
@@ -253,31 +196,74 @@
     Número de Personas: ${personas}\n
     Comentarios Adicionales: ${comentarios}\n
     Correo Electrónico: ${correo}\n
-    `;
-                        const { jsPDF } = window.jspdf;
-                        const doc = new jsPDF();
-                        doc.text(mensaje, 10, 10);
-                        doc.save('reserva.pdf');
-    
-                        // Enviar correo usando mailto (abre cliente de correo)
-                        const subject = encodeURIComponent('Reserva de Mesa');
-                        const body = encodeURIComponent(
-                            `Nombre: ${nombre}\n` +
-                            `Teléfono: ${telefono}\n` +
-                            `Fecha: ${fecha}\n` +
-                            `Hora: ${hora}\n` +
-                            `Número de Personas: ${personas}\n` +
-                            `Comentarios Adicionales: ${comentarios}\n` +
-                            `Correo Electrónico: ${correo}\n`
-                        );
-                        // Cambia 'jtobar@unimayor.edu.co' por el correo real del restaurante si es necesario
-                        window.open(`mailto:jtobar@unimayor.edu.co?subject=${subject}&body=${body}`, '_blank');
+    Gracias por reservar con nosotros. ¡Te esperamos!`;
+                    const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF();
+                    doc.text(mensaje, 10, 10);
+                    doc.save('reserva.pdf');
+
+                    // ENVÍO MEJORADO DE CORREOS
+                    const restauranteEmail = 'jbarto2809@outlook.com';
+
+                    // Correo para el RESTAURANTE
+                    const subjectRestaurante = `Nueva Reserva - ${nombre}`;
+                    const bodyRestaurante =
+                        `NUEVA RESERVA RECIBIDA\n\n` +
+                        `Nombre del cliente: ${nombre}\n` +
+                        `Correo electrónico: ${correo}\n` +
+                        `Teléfono: ${telefono}\n` +
+                        `Fecha de reserva: ${fecha}\n` +
+                        `Hora: ${hora}\n` +
+                        `Número de personas: ${personas}\n` +
+                        `Comentarios adicionales: ${comentarios || 'Ninguno'}\n\n` +
+                        `Fecha de recepción: ${new Date().toLocaleString()}`;
+
+                    // Correo de CONFIRMACIÓN para el CLIENTE
+                    const subjectCliente = 'Confirmación de Reserva - Brasas y Barriles Quintero';
+                    const bodyCliente =
+                        `Hola ${nombre},\n\n` +
+                        `¡Gracias por tu reserva en Brasas y Barriles Quintero!\n\n` +
+                        `Aquí están los detalles de tu reserva:\n\n` +
+                        `📅 Fecha: ${fecha}\n` +
+                        `⏰ Hora: ${hora}\n` +
+                        `👥 Número de personas: ${personas}\n` +
+                        `📝 Comentarios: ${comentarios || 'Ninguno'}\n\n` +
+                        `¡Esperamos verte pronto!\n\n` +
+                        `Atentamente,\n` +
+                        `El equipo de Brasas y Barriles Quintero`;
+
+                    // Función mejorada para abrir correos
+                    function abrirCorreo(email, subject, body) {
+                        const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                        // Intentar abrir en una ventana nueva pequeña
+                        const ventanaCorreo = window.open(mailtoLink, 'EnviarCorreo', 'width=600,height=400,top=100,left=100');
+
+                        // Si falla, intentar método alternativo
                         setTimeout(() => {
-                            window.open(`mailto:${correo}?subject=Confirmación de Reserva&body=Hola ${nombre},%0A%0ATu reserva ha sido recibida:%0AFecha: ${fecha}%0AHora: ${hora}%0ANúmero de Personas: ${personas}%0A%0AGracias por reservar en Brasas y Barriles Quintero.`, '_blank');
-                            alert('¡Reserva exitosa! Se ha descargado el PDF y se han enviado los correos.');
-                        }, 1000);
-                    });
-                </script>
+                            if (!ventanaCorreo || ventanaCorreo.closed || typeof ventanaCorreo.closed == 'undefined') {
+                                // Fallback: redireccionar directamente
+                                window.location.href = mailtoLink;
+                            }
+                        }, 500);
+                    }
+
+                    // Abrir correos con delay
+                    setTimeout(() => {
+                        abrirCorreo(restauranteEmail, subjectRestaurante, bodyRestaurante);
+
+                        setTimeout(() => {
+                            abrirCorreo(correo, subjectCliente, bodyCliente);
+
+                            // Mostrar instrucciones claras
+                            setTimeout(() => {
+                                alert(`¡Reserva exitosa!\n\nSe ha generado el PDF y se han preparado los correos.\n\nINSTRUCCIONES:\n1. Se abrirán ventanas de correo\n2. Si no se abren automáticamente:\n   - Copia el texto de los correos\n   - Pégalo en tu cliente de correo preferido\n   - Envía ambos correos manualmente`);
+                            }, 2000);
+                        }, 1500);
+                    }, 1000);
+                });
+            </script>
+
         </div>
     </section>
 
