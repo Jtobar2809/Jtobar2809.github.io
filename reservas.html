@@ -60,9 +60,8 @@
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img
-                        src="C:\Users\jbart\OneDrive\Documentos\PaginasWeb\Html\imagenesPagina\logo.jpg " width="70px"
-                        height="70px" alt=""></a>
+                <a class="navbar-brand" href="#"><img src="imagenesPagina\logo.jpg " width="70px" height="70px"
+                        alt=""></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -151,25 +150,35 @@
         <!-- Formulario de Reservación -->
         <div class="formulario-container">
             <h3>Llena este formulario.</h3>
-            <form class="formulario-reservacion">
+            <form class="formulario-reservacion" id="formReservacion">
                 <div class="form-group">
                     <label for="nombreReservacion">Nombre Completo:</label>
                     <input type="text" id="nombreReservacion" name="nombreReservacion" required>
+                    <span class="invalid-feedback" style="display:none;color:red;">Este campo es obligatorio.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="correoReservacion">Correo Electrónico:</label>
+                    <input type="email" id="correoReservacion" name="correoReservacion" required>
+                    <span class="invalid-feedback" style="display:none;color:red;">Ingrese un correo válido.</span>
                 </div>
 
                 <div class="form-group">
                     <label for="telefonoReservacion">Teléfono:</label>
                     <input type="tel" id="telefonoReservacion" name="telefonoReservacion" required>
+                    <span class="invalid-feedback" style="display:none;color:red;">Este campo es obligatorio.</span>
                 </div>
 
                 <div class="form-group">
                     <label for="fechaReservacion">Fecha:</label>
                     <input type="date" id="fechaReservacion" name="fechaReservacion" required>
+                    <span class="invalid-feedback" style="display:none;color:red;">Seleccione una fecha.</span>
                 </div>
 
                 <div class="form-group">
                     <label for="horaReservacion">Hora:</label>
                     <input type="time" id="horaReservacion" name="horaReservacion" required>
+                    <span class="invalid-feedback" style="display:none;color:red;">Seleccione una hora.</span>
                 </div>
 
                 <div class="form-group">
@@ -186,6 +195,8 @@
                         <option value="8">8 personas</option>
                         <option value="mas">Más de 8 personas</option>
                     </select>
+                    <span class="invalid-feedback" style="display:none;color:red;">Seleccione el número de
+                        personas.</span>
                 </div>
 
                 <div class="form-group">
@@ -195,35 +206,131 @@
 
                 <button type="submit" class="btn-formulario">Reservar Mesa</button>
             </form>
+                <!-- Agrega jsPDF antes del script de tu formulario -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+                <script>
+                    document.getElementById('formReservacion').addEventListener('submit', function (event) {
+                        event.preventDefault();
+    
+                        let valid = true;
+                        const form = event.target;
+                        // Validación manual
+                        Array.from(form.elements).forEach(el => {
+                            if (el.required) {
+                                if (!el.value) {
+                                    valid = false;
+                                    el.nextElementSibling.style.display = 'inline';
+                                } else {
+                                    el.nextElementSibling.style.display = 'none';
+                                }
+                            }
+                            if (el.type === 'email' && el.value) {
+                                // Simple email validation
+                                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)) {
+                                    valid = false;
+                                    el.nextElementSibling.textContent = 'Ingrese un correo válido.';
+                                    el.nextElementSibling.style.display = 'inline';
+                                }
+                            }
+                        });
+    
+                        if (!valid) return;
+    
+                        const nombre = form.nombreReservacion.value;
+                        const telefono = form.telefonoReservacion.value;
+                        const fecha = form.fechaReservacion.value;
+                        const hora = form.horaReservacion.value;
+                        const personas = form.personasReservacion.value;
+                        const comentarios = form.comentariosReservacion.value;
+                        const correo = form.correoReservacion.value;
+    
+                        // Generar PDF
+                        const mensaje = `Reserva a nombre de:\n
+    Nombre: ${nombre}\n
+    Teléfono: ${telefono}\n
+    Fecha: ${fecha}\n
+    Hora: ${hora}\n
+    Número de Personas: ${personas}\n
+    Comentarios Adicionales: ${comentarios}\n
+    Correo Electrónico: ${correo}\n
+    `;
+                        const { jsPDF } = window.jspdf;
+                        const doc = new jsPDF();
+                        doc.text(mensaje, 10, 10);
+                        doc.save('reserva.pdf');
+    
+                        // Enviar correo usando mailto (abre cliente de correo)
+                        const subject = encodeURIComponent('Reserva de Mesa');
+                        const body = encodeURIComponent(
+                            `Nombre: ${nombre}\n` +
+                            `Teléfono: ${telefono}\n` +
+                            `Fecha: ${fecha}\n` +
+                            `Hora: ${hora}\n` +
+                            `Número de Personas: ${personas}\n` +
+                            `Comentarios Adicionales: ${comentarios}\n` +
+                            `Correo Electrónico: ${correo}\n`
+                        );
+                        // Cambia 'jtobar@unimayor.edu.co' por el correo real del restaurante si es necesario
+                        window.open(`mailto:jtobar@unimayor.edu.co?subject=${subject}&body=${body}`, '_blank');
+                        setTimeout(() => {
+                            window.open(`mailto:${correo}?subject=Confirmación de Reserva&body=Hola ${nombre},%0A%0ATu reserva ha sido recibida:%0AFecha: ${fecha}%0AHora: ${hora}%0ANúmero de Personas: ${personas}%0A%0AGracias por reservar en Brasas y Barriles Quintero.`, '_blank');
+                            alert('¡Reserva exitosa! Se ha descargado el PDF y se han enviado los correos.');
+                        }, 1000);
+                    });
+                </script>
         </div>
     </section>
 
-    <script>
-        const form = document.querySelector('.formulario-reservacion');
-        form.addEventListener('submit', function (event) {
-            event.preventDefault(); // Evita el envío del formulario
-            nombre = form.nombreReservacion.value;
-            telefono = form.telefonoReservacion.value;
-            fecha = form.fechaReservacion.value;
-            hora = form.horaReservacion.value;
-            personas = form.personasReservacion.value;
-            comentarios = form.comentariosReservacion.value;
-            const mensaje = `Reserva a nombre de :\n
-            Nombre: ${nombre}\n
-            Teléfono: ${telefono}\n
-            Fecha: ${fecha}\n
-            Hora: ${hora}\n
-            Número de Personas: ${personas}\n
-            Comentarios Adicionales: ${comentarios}`;
-            const doc = new window.jspdf.jsPDF();
-            doc.text(mensaje, 10, 10);
-            doc.save('reserva.pdf');
 
-            alert('¡Gracias por tu reservación! Nos pondremos en contacto contigo pronto.');
-            this.reset(); // Reinicia el formulario después de enviarlo
-        });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+
+
+    <!-- Footer -->
+
+    <footer class="bg-body-tertiary text-center text-lg-start">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column - Información principal -->
+                <div class="col-lg-8 col-md-12 mb-4 mb-md-0">
+                    <h4 class="text-uppercase mb-3">Brasas y Barriles Quintero</h4>
+                    <p class="mb-3">
+                        El mejor lugar para reunirse, compartir grandes momentos y disfrutar de la combinación perfecta
+                        entre las brasas más sabrosas y el ambiente más acogedor. ¡Tu mesa está lista!
+                    </p>
+                    <p class="mb-0">
+                        <strong>Sabores auténticos, momentos inolvidables.</strong>
+                    </p>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column - Información de contacto -->
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-3">Visítanos</h5>
+                    <p class="mb-2">
+                        <i class="fas fa-map-marker-alt me-2"></i>Popyán, Cauca, Colombia.
+                    </p>
+                    <p class="mb-2">
+                        <i class="fas fa-phone me-2"></i>+57 3105912900
+                    </p>
+                    <p class="mb-2">
+                        <i class="fas fa-clock me-2"></i>Lun-Dom: 12:00 - 23:00
+                    </p>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2025 Copyright: Brasas y Barriles Quintero
+        </div>
+        <!-- Copyright -->
+    </footer>
 
 
 

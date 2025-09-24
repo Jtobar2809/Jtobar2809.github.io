@@ -4,7 +4,8 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/style1.css ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style1.css">
     <link rel="shortcut icon" href="imagenesPagina/icono.ico" type="image/x-icon">
 </head>
 
@@ -14,13 +15,7 @@
             style="color: white ; font-family: Georgia, 'Times New Roman', Times, serif; font: Georgia; font-size: 20px;">
             <img src="imagenesPagina/icono.ico"
                 style="width: 30px; height: 30px; top: 00px; right: 9px; z-index: 1000; border: none; border-radius: 5px; cursor: pointer;"
-                alt="Icono de la pagina"> </img> BBQ
-
-
-
-
-
-
+                alt="Icono de la pagina"> BBQ
 
             <button id="toggleAudio" onclick="toggleAudio()"
                 style="height: 40px ;position: fixed; top: 00px; right: 10px; z-index: 1000; background-color: rgb(121, 2, 2); border: none; padding: 5px; border-radius: 5px; cursor: pointer; color : white; ">
@@ -31,38 +26,12 @@
                 <source src="Audios/sonidoCarne.mp3" type="audio/mpeg">
                 <source src="Audios/sonidoCarne.ogg" type="audio/ogg">
             </audio>
-
-            <script>
-                let audioActivo = false;
-
-                function toggleAudio() {
-                    const audio = document.getElementById('audioFondo');
-                    const boton = document.getElementById('toggleAudio');
-
-                    if (!audioActivo) {
-                        audio.play();
-                        boton.textContent = '🔊 ON';
-                        audioActivo = true;
-                    } else {
-                        audio.pause();
-                        boton.textContent = '🔊 OFF';
-                        audioActivo = false;
-                    }
-                }
-            </script>
-
         </div>
-
-
-
-
-
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img
-                        src="imagenesPagina/logo.jpg" width="70px"
-                        height="70px" alt=""></a>
+                <a class="navbar-brand" href="#"><img src="imagenesPagina/logo.jpg" width="70px" height="70px"
+                        alt=""></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -70,35 +39,17 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#mision">Nosotros</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#video">Galería</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="menu.html">Menú</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="reservas.html">Reservas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="domicilios.html">Domicilios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Pagina4.html">Acordeon</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#mision">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+                        <li class="nav-item"><a class="nav-link" href="menu.html">Menú</a></li>
+                        <li class="nav-item"><a class="nav-link" href="reservas.html">Reservas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="domicilios.html">Domicilios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Pagina4.html">Acordeon</a></li>
                     </ul>
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="¿Buscasbas Algo?"
-                            aria-label="search" />
-                        <button class="btnSearch" type="">Buscar</button>
+                        <input class="form-control me-2" type="search" placeholder="¿Buscas algo?" aria-label="search">
+                        <button class="btnSearch" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -107,11 +58,10 @@
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="imagenesCarrusel/asado.jpg" class="d-block w-100" alt="..." height="300px" width="1200px">
+                    <img src="imagenesCarrusel/asado.jpg" class="d-block w-100" alt="..." height="300px">
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
-                    <img src="imagenesCarrusel/asado1.jpg" class="d-block w-100" alt="..." height="300px"
-                        width="1200px">
+                    <img src="imagenesCarrusel/asado1.jpg" class="d-block w-100" alt="..." height="300px">
                 </div>
                 <div class="carousel-item">
                     <img src="imagenesCarrusel/asado2.jpg" class="d-block w-100" alt="..." height="300px">
@@ -131,98 +81,207 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-            </script>
-
     </header>
 
-
-
-    <div class="Titulo">
-
-        <h1>Restaurante Familiar</h1>
-        <h2>Brasas y Barriles<br> Quintero</h2>
-
-    </div>
-
-
-
-
-
-
-
-
-
-    <section id="mision">
-
-
-        <div class="mision">
-            <h3 aling="left">Nuestra Mision</h3>
-            <p aling="left">Ofrecer experiencias gastronomicas unicas a traves de asados al barril,
-                preparados con tradicion familiar, calidad y sabor casero, en un ambiente
-                familiar y acogedor, que resalte los valores de la cocina Colombiana y el compartir
-                en familia.
-            </p>
+    <!-- Contenido Principal con Aside -->
+    <main class="main-container">
+        <div class="Titulo">
+            <h1>Restaurante Familiar</h1>
+            <h2>Brasas y Barriles<br> Quintero</h2>
         </div>
 
-        <div class="vision">
-            <h3 aling="left">Nuestra Vision </h3>
-            <p aling="left">Ser conocidos a nivel nacional como el restaurante familiar lider
-                en asados al barril, destacando por nuestra exelencia en sabor, atencion al cliente y un a,biente calido
-                que invite a volver, creciendo con raices firmes y sabor autentico.
-            </p>
+        <div class="content-wrapper">
+            <!-- Contenido Principal -->
+            <div class="main-content">
+                <section id="mision" class="mission-section">
+                    <div class="mision">
+                        <h3>Nuestra Misión</h3>
+                        <p>Ofrecer experiencias gastronómicas únicas a través de asados al barril,
+                            preparados con tradición familiar, calidad y sabor casero, en un ambiente
+                            familiar y acogedor, que resalte los valores de la cocina Colombiana y el compartir
+                            en familia.
+                        </p>
+                    </div>
+
+                    <div class="vision">
+                        <h3>Nuestra Visión</h3>
+                        <p>Ser conocidos a nivel nacional como el restaurante familiar líder
+                            en asados al barril, destacando por nuestra excelencia en sabor, atención al cliente y un
+                            ambiente cálido
+                            que invite a volver, creciendo con raíces firmes y sabor auténtico.
+                        </p>
+                    </div>
+                </section>
+
+                <section id="sobre-nosotros">
+                    <div class="sobre-nosotros">
+                        <h3>Sobre Nosotros</h3>
+                        <p>En Brasas y Barriles Quintero, te invitamos a un viaje de sabores auténticos, donde la
+                            tradición y la pasión se encuentran en cada plato. Más que un simple restaurante, somos un
+                            espacio de
+                            encuentro, una celebración de la buena mesa y la compañía.</p>
+                        <p>Nuestra historia comenzó con una idea sencilla: honrar el arte de la parrilla y la maestría
+                            de la
+                            buena bebida. Desde las brasas ardientes que dan vida a nuestras carnes de alta calidad,
+                            hasta los barriles de
+                            madera que guardan nuestros licores y vinos, cada elemento en nuestro restaurante está
+                            elegido con
+                            cuidado para ofrecerte una experiencia inolvidable.</p>
+                        <p>Nos especializamos en cortes de carne a la parrilla, cocinados a la perfección para resaltar
+                            su
+                            sabor natural. Además, nuestra selección de acompañamientos y postres caseros complementa a
+                            la perfección
+                            nuestra oferta.</p>
+                    </div>
+                </section>
+
+                <div class="Titulo">
+                    <h2 id="galeria">Galería</h2>
+                </div>
+
+                <section class="gallery-section">
+                    <video controls class="gallery-video">
+                        <source src="Videos/videoImagenesCarrousel.ogg" type="video/ogg">
+                    </video>
+                    <img src="imagenesMenu/menu3.png" alt="Imagen de Bebida" class="gallery-image">
+                </section>
+            </div>
+
+            <!-- Botón flotante para mostrar/ocultar el aside -->
+            <button class="aside-toggle-btn" onclick="toggleAside()">
+                <i class="fas fa-fire"></i>
+            </button>
+
+            <!-- Aside -->
+            <aside class="restaurant-aside" id="restaurantAside">
+                <div class="aside-header">
+                    <h3>🔥 Ofertas Especiales</h3>
+                    <button class="close-aside" onclick="toggleAside()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="aside-content">
+                    <div class="promo-item">
+                        <div class="promo-icon">🍖</div>
+                        <div class="promo-text">
+                            <h4>Parrillada Familiar</h4>
+                            <p>2x1 en bebidas los fines de semana</p>
+                            <span class="promo-tag">¡Solo por hoy!</span>
+                        </div>
+                    </div>
+
+                    <div class="promo-item">
+                        <div class="promo-icon">🍺</div>
+                        <div class="promo-text">
+                            <h4>Barril Feliz</h4>
+                            <p>20% de descuento en barriles seleccionados</p>
+                            <span class="promo-tag">Promo activa</span>
+                        </div>
+                    </div>
+
+                    <div class="promo-item">
+                        <div class="promo-icon">🎉</div>
+                        <div class="promo-text">
+                            <h4>Eventos Especiales</h4>
+                            <p>Reserva para cumpleaños y celebraciones</p>
+                            <span class="promo-tag">Disponible</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eliminé el botón de reserva que no funcionaba -->
+            </aside>
         </div>
+    </main>
 
-    </section>
-
-        <section id="mision">
-
-        <div class="sobre-nosotros">
-
-            <h3 style="align-content: center;">Sobre Nosotros</h3>
-            <p aling="left">En Brasas y Barriles Quintero, te invitamos a un viaje de sabores auténticos, donde la
-                tradición y la pasión se encuentran en cada plato. Más que un simple restaurante, somos un espacio de
-                encuentro, una celebración de la buena mesa y la compañía. <br>
-
-                <br> Nuestra historia comenzó con una idea sencilla: honrar el arte de la parrilla y la maestría de la buena
-                bebida. Desde las brasas ardientes que dan vida a nuestras carnes de alta calidad, hasta los barriles de
-                madera que guardan nuestros licores y vinos, cada elemento en nuestro restaurante está elegido con
-                cuidado para ofrecerte una experiencia inolvidable. <br>
-
-                <br> Nos especializamos en cortes de carne a la parrilla, cocinados a la perfección para resaltar su sabor
-                natural. Además, nuestra selección de acompañamientos y postres caseros complementa a la perfección
-                nuestra oferta. Creemos firmemente que la mejor comida es la que se comparte, y por eso hemos creado un
-                ambiente cálido y acogedor, perfecto para una cena familiar, una celebración con amigos o una cita
-                especial. <br>
-
-                <br> En Brasas y Barriles Quintero, cada bocado es un recuerdo y cada visita es una historia. Ven y sé parte
-                de la nuestra.
-            </p>
-
+    <footer class="bg-body-tertiary text-center text-lg-start">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 mb-4 mb-md-0">
+                    <h4 class="text-uppercase mb-3">Brasas y Barriles Quintero</h4>
+                    <p class="mb-3">El mejor lugar para reunirse, compartir grandes momentos y disfrutar de la
+                        combinación perfecta
+                        entre las brasas más sabrosas y el ambiente más acogedor. ¡Tu mesa está lista!</p>
+                    <p class="mb-0"><strong>Sabores auténticos, momentos inolvidables.</strong></p>
+                </div>
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-3">Visítanos</h5>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Popayán, Cauca, Colombia.</p>
+                    <p class="mb-2"><i class="fas fa-phone me-2"></i>+57 3105912900</p>
+                    <p class="mb-2"><i class="fas fa-clock me-2"></i>Lun-Dom: 12:00 - 23:00</p>
+                </div>
+            </div>
         </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2025 Copyright: Brasas y Barriles Quintero
+        </div>
+    </footer>
 
-    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
 
-    <div class="Titulo">
-        <h2>Galeria</h2>
-    </div>
+    <script>
+        let audioActivo = false;
 
-    <section id="video">
+        function toggleAudio() {
+            const audio = document.getElementById('audioFondo');
+            const boton = document.getElementById('toggleAudio');
+
+            if (!audioActivo) {
+                audio.play();
+                boton.textContent = '🔊 ON';
+                audioActivo = true;
+            } else {
+                audio.pause();
+                boton.textContent = '🔊 OFF';
+                audioActivo = false;
+            }
+        }
+    </script>
+
+    <script>
+    // Función para mostrar/ocultar el aside
+    function toggleAside() {
+        const aside = document.getElementById('restaurantAside');
+        const toggleBtn = document.querySelector('.aside-toggle-btn');
+        const contentWrapper = document.querySelector('.content-wrapper');
         
-        <video controls>
-            <source src="Videos\videoImagenesCarrousel.ogg" type="video/ogg" />
-        </video>
-    </section>
-    <section id="video">
-        <img src="imagenesMenu/menu3.png" alt="Imagen de Bebida" class="menu-image">
-    </section>
-
-   
-
+        aside.classList.toggle('hidden');
+        contentWrapper.classList.toggle('aside-hidden');
+        
+        // Cambiar el icono del botón flotante
+        const icon = toggleBtn.querySelector('i');
+        if (aside.classList.contains('hidden')) {
+            icon.className = 'fas fa-fire';
+        } else {
+            icon.className = 'fas fa-times';
+        }
+    }
+    
+    // Cerrar aside al hacer clic fuera de él (solo en móviles)
+    document.addEventListener('click', function(event) {
+        const aside = document.getElementById('restaurantAside');
+        const toggleBtn = document.querySelector('.aside-toggle-btn');
+        
+        if (window.innerWidth <= 992) {
+            if (!aside.contains(event.target) && !toggleBtn.contains(event.target) && !aside.classList.contains('hidden')) {
+                toggleAside();
+            }
+        }
+    });
+    
+    // Cerrar aside con la tecla Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const aside = document.getElementById('restaurantAside');
+            if (!aside.classList.contains('hidden')) {
+                toggleAside();
+            }
+        }
+    });
+</script>
 </body>
 
 </html>
