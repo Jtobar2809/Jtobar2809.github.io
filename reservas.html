@@ -59,7 +59,7 @@
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="3000">
-                <img src="imagenesCarrusel/asado.jpg" class="d-block w-100" alt="..." height="300px">
+                    <img src="imagenesCarrusel/asado.jpg" class="d-block w-100" alt="..." height="300px">
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
                     <img src="imagenesCarrusel/asado1.png" class="d-block w-100 h-300" alt="..." height="300px">
@@ -270,6 +270,137 @@
 
         </div>
     </section>
+
+    <script>
+        // Configuración de búsqueda - SIMPLIFICADA
+        const searchConfig = {
+            'index.html': [
+                { term: 'inicio', page: 'index.html' },
+                { term: 'nosotros', page: 'index.html', section: 'mision' },
+                { term: 'misión', page: 'index.html', section: 'mision' },
+                { term: 'visión', page: 'index.html', section: 'mision' },
+                { term: 'galería', page: 'index.html', section: 'galeria' },
+                { term: 'sobre nosotros', page: 'index.html', section: 'sobre-nosotros' }
+            ],
+            'menu.html': [
+                { term: 'menú', page: 'menu.html' },
+                { term: 'menu', page: 'menu.html' },
+                { term: 'carta', page: 'menu.html' },
+                { term: 'comida', page: 'menu.html' },
+                { term: 'platos', page: 'menu.html' },
+                { term: 'carnes', page: 'menu.html' }
+            ],
+            'reservas.html': [
+                { term: 'reservas', page: 'reservas.html' },
+                { term: 'reservar', page: 'reservas.html' },
+                { term: 'mesa', page: 'reservas.html' }
+            ],
+            'domicilios.html': [
+                { term: 'domicilios', page: 'domicilios.html' },
+                { term: 'delivery', page: 'domicilios.html' }
+            ],
+            'Pagina4.html': [
+                { term: 'acordeón', page: 'Pagina4.html' },
+                { term: 'preguntas', page: 'Pagina4.html' }
+            ]
+        };
+
+        // Función de búsqueda simplificada
+        function handleSearch(event) {
+            event.preventDefault();
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+
+            if (!searchTerm) return;
+
+            let found = false;
+
+            // Buscar en todas las páginas
+            for (const page in searchConfig) {
+                for (const item of searchConfig[page]) {
+                    if (item.term.includes(searchTerm) || searchTerm.includes(item.term)) {
+                        navigateToPage(item.page, item.section);
+                        found = true;
+                        return;
+                    }
+                }
+            }
+
+            if (!found) {
+                alert('No se encontraron resultados para: "' + searchTerm + '"\n\nIntenta con: menú, reservas, domicilios, galería');
+            }
+        }
+
+        function navigateToPage(page, section) {
+            const currentPage = window.location.pathname.split('/').pop();
+
+            if (currentPage === page) {
+                // Misma página, scroll a la sección
+                if (section && document.getElementById(section)) {
+                    document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                // Diferente página, redirigir
+                window.location.href = page + (section ? '#' + section : '');
+            }
+        }
+
+        // Agregar event listener al formulario
+        document.getElementById('searchForm').addEventListener('submit', handleSearch);
+
+        // TUS FUNCIONES ORIGINALES (sin cambios)
+        let audioActivo = false;
+
+        function toggleAudio() {
+            const audio = document.getElementById('audioFondo');
+            const boton = document.getElementById('toggleAudio');
+
+            if (!audioActivo) {
+                audio.play();
+                boton.textContent = '🔊 ON';
+                audioActivo = true;
+            } else {
+                audio.pause();
+                boton.textContent = '🔊 OFF';
+                audioActivo = false;
+            }
+        }
+
+        function toggleAside() {
+            const aside = document.getElementById('restaurantAside');
+            const toggleBtn = document.querySelector('.aside-toggle-btn');
+            const contentWrapper = document.querySelector('.content-wrapper');
+
+            aside.classList.toggle('hidden');
+            contentWrapper.classList.toggle('aside-hidden');
+
+            const icon = toggleBtn.querySelector('i');
+            if (aside.classList.contains('hidden')) {
+                icon.className = 'fas fa-fire';
+            } else {
+                icon.className = 'fas fa-times';
+            }
+        }
+
+        document.addEventListener('click', function (event) {
+            const aside = document.getElementById('restaurantAside');
+            const toggleBtn = document.querySelector('.aside-toggle-btn');
+
+            if (window.innerWidth <= 992) {
+                if (!aside.contains(event.target) && !toggleBtn.contains(event.target) && !aside.classList.contains('hidden')) {
+                    toggleAside();
+                }
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                const aside = document.getElementById('restaurantAside');
+                if (!aside.classList.contains('hidden')) {
+                    toggleAside();
+                }
+            }
+        });
+    </script>
 
 
 
