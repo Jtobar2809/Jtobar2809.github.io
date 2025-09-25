@@ -98,7 +98,11 @@ nav ul li:hover {
 .Titulo {
     text-shadow: 4px 5px 1px rgb(58, 58, 58);
     text-align: center;
-    margin: 30px 0;
+    margin: 15px 0;
+}
+
+.carousel-inner > .carousel-item > img {
+    height: 350px !important;
 }
 
 h1,
@@ -111,7 +115,7 @@ section {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 20px;
     padding: 20px;
     background-color: rgb(73, 71, 68);
@@ -172,7 +176,7 @@ section {
     margin-bottom: 30px;
 }
 
-/* ===== ASIDE MEJORADO ===== */
+/* ===== ASIDE ===== */
 .restaurant-aside {
     flex: 0 0 350px;
     background: linear-gradient(135deg, rgba(121, 2, 2, 0.95) 0%, rgba(73, 71, 68, 0.98) 100%);
@@ -196,7 +200,7 @@ section {
     transform: translateX(100%);
     pointer-events: none;
     position: absolute;
-    right: -400px;
+    right: 400px;
     width: 350px;
     flex: 0 0 0px;
 }
@@ -645,7 +649,6 @@ img {
 
 /* ===== MEDIA QUERIES - SOLO PARA MÓVILES ===== */
 
-/* CORRECCIÓN: COLOR DE LAS 3 LÍNEAS DEL NAVBAR EN MÓVILES */
 .navbar-toggler {
     border-color: rgb(121, 2, 2) !important;
 }
@@ -681,10 +684,10 @@ img {
         right: 0;
     }
 
-    /* CORRECCIÓN: CUANDO EL ASIDE ESTÁ CERRADO - NO DEJA ESPACIO NEGRO */
+    /* CUANDO EL ASIDE ESTÁ CERRADO - NO DEJA ESPACIO NEGRO */
     .restaurant-aside.hidden {
         right: -100%;
-        display: none; /* Esto elimina completamente el espacio */
+        display: none; 
     }
 
     .main-content {
@@ -856,19 +859,6 @@ img {
     }
 }
 
-@keyframes animacion_martillo {
-    0% {
-        transform: rotate(10deg);
-    }
-
-    50% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(10deg);
-    }
-}
 
 /* From Uiverse.io by FColombati */
 .buttonVolver {
