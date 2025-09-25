@@ -624,34 +624,52 @@ img {
 }
 
 /* ===== MEDIA QUERIES - SOLO PARA MÓVILES ===== */
+
+/* CORRECCIÓN: COLOR DE LAS 3 LÍNEAS DEL NAVBAR EN MÓVILES */
+.navbar-toggler {
+    border-color: rgb(121, 2, 2) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(255, 255, 255)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25) !important;
+}
+
 /* TABLETS (768px - 992px) */
 @media (max-width: 992px) {
     .content-wrapper {
         flex-direction: column;
+        gap: 20px;
     }
 
     .restaurant-aside {
         position: fixed;
         top: 0;
-        right: 0;
+        right: -100%;
         height: 100vh;
         width: 300px;
-        z-index: 999;
+        z-index: 1001;
         overflow-y: auto;
-        transform: translateX(0);
-        flex: none;
-        max-width: 100%;
-        margin: 0;
+        transition: right 0.3s ease;
     }
 
-    .restaurant-aside.hidden {
-        transform: translateX(100%);
+    /* CORRECCIÓN: CUANDO EL ASIDE ESTÁ ABIERTO */
+    .restaurant-aside:not(.hidden) {
         right: 0;
-        width: 300px;
+    }
+
+    /* CORRECCIÓN: CUANDO EL ASIDE ESTÁ CERRADO - NO DEJA ESPACIO NEGRO */
+    .restaurant-aside.hidden {
+        right: -100%;
+        display: none; /* Esto elimina completamente el espacio */
     }
 
     .main-content {
         flex: 1 0 100%;
+        width: 100%;
     }
 
     .mission-section {
@@ -673,7 +691,7 @@ img {
     }
 
     .content-wrapper {
-        gap: 20px;
+        gap: 15px;
     }
 
     .restaurant-aside {
@@ -753,17 +771,23 @@ img {
     section {
         padding: 15px;
         margin: 15px 0;
+        flex-direction: column;
     }
     
     .mision, .vision, .sobre-nosotros {
         padding: 20px;
         font-size: 16px;
+        margin: 10px 0;
     }
     
     .restaurant-aside {
         width: 100%;
         height: 100vh;
         border-radius: 0;
+    }
+    
+    .restaurant-aside.hidden {
+        display: none; /* Elimina completamente el espacio en móviles pequeños */
     }
     
     .aside-toggle-btn {
@@ -774,6 +798,16 @@ img {
     
     .carousel-item img {
         height: 150px !important;
+    }
+    
+    /* CORRECCIÓN: MEJOR ESPACIADO EN MÓVILES */
+    .mission-section {
+        gap: 15px;
+    }
+    
+    .gallery-section {
+        gap: 15px;
+        padding: 15px;
     }
 }
 
@@ -952,3 +986,4 @@ img {
 .buttonVolver:active .button-inner {
     transform: scale(0.975);
 }
+/* ... (el resto de tus animaciones y estilos se mantienen igual) ... */
