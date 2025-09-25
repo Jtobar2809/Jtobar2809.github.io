@@ -132,7 +132,17 @@
                 </div>
 
                 <button type="submit" class="btn-formulario">Realizar Pedido</button>
+
             </form>
+            <script>
+                const textAlert = "¡Gracias por tu pedido! Nos pondremos en contacto contigo pronto para confirmar los detalles.";
+                const formDomicilio = document.querySelector('.formulario-domicilio'); 
+                formDomicilio.addEventListener('submit', function (event) {
+                    event.preventDefault(); 
+                    alert(textAlert); 
+                    formDomicilio.reset(); 
+                });
+            </script>
         </div>
     </section>
 
