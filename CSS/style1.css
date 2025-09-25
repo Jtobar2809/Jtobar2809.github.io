@@ -11,7 +11,18 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+
+
 /* ===== HEADER Y NAVEGACIÓN ===== */
+
+.bg-body-tertiary {
+    background-color: rgb(73, 71, 68) !important;
+    color: white !important;
+    padding-top: 45px !important;
+    height: auto !important;
+    border-top: 2px double black !important;
+}
+
 header {
     background-color: rgb(141, 36, 36);
     width: 100%;
@@ -323,10 +334,13 @@ section {
 }
 
 /* ===== FOOTER ===== */
-.bg-body-tertiary {
+
+
+.footer {
     background-color: rgb(73, 71, 68) !important;
-    color: white !important;
-    padding-top: 45px !important;
+    padding-top: 5px !important;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     height: auto !important;
     border-top: 2px double black !important;
 }
