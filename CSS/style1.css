@@ -35,7 +35,7 @@ nav ul {
     float: left;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
-    border: 2px double rgb(112, 112, 112);
+    border:  double white;
     border-radius: 10px;
 }
 
@@ -53,11 +53,20 @@ nav ul li:hover {
 .btnSearch {
     background: rgb(121, 2, 2) !important;
     padding: 5px;
-    color: white !important;
-    border: 2px double white !important;
-    border-radius: 5px !important;
+    color: white;
+    border: double;
+    border-color: white;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.btnSearch:hover {
+    background: rgb(243, 32, 32) !important;
+
+}   
 
 #toggleAudio {
     transition: all 0.3s ease;
@@ -92,6 +101,7 @@ section {
     color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
+    border-radius: 10px;
 }
 
 .mision,
@@ -103,6 +113,7 @@ section {
     box-shadow: 10px 10px 20px black inset;
     background: radial-gradient(circle, rgba(73, 71, 68, 1) 0%, rgba(121, 2, 2, 1) 100%);
     border: 2px double black;
+    border-radius: 10px;
     padding: 30px;
 }
 
@@ -263,8 +274,8 @@ section {
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
-    background: linear-gradient(135deg, #ff4500, #cc3700);
-    border: 2px double #ffd700;
+    background-color: rgba(121, 2, 2, 0.95);
+    border: double white;
     color: white;
     width: 60px;
     height: 60px;
@@ -280,7 +291,7 @@ section {
 }
 
 .aside-toggle-btn:hover {
-    background: linear-gradient(135deg, #ff5500, #dd4400);
+    background: rgb(233, 51, 5);
     transform: translateY(-50%) scale(1.1);
     box-shadow: 0 6px 20px rgba(255, 69, 0, 0.6);
 }
@@ -309,9 +320,9 @@ section {
 .bg-body-tertiary {
     background-color: rgb(73, 71, 68) !important;
     color: white !important;
-    padding-top: 30px !important;
+    padding-top: 45px !important;
     height: auto !important;
-    min-height: 150px;
+    border-top: 2px double black !important;
 }
 
 footer h4,

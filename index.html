@@ -47,8 +47,9 @@
                         <li class="nav-item"><a class="nav-link" href="domicilios.html">Domicilios</a></li>
                         <li class="nav-item"><a class="nav-link" href="Pagina4.html">Acordeon</a></li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="¿Buscas algo?" aria-label="search">
+                    <form class="d-flex" role="search" id="searchForm">
+                        <input class="form-control me-2" type="search" placeholder="¿Buscas algo?" aria-label="search"
+                            id="searchInput">
                         <button class="btnSearch" type="submit">Buscar</button>
                     </form>
                 </div>
@@ -57,17 +58,17 @@
 
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="imagenesCarrusel/asado.jpg" class="d-block w-100" alt="..." height="300px">
+                <div class="carousel-item active" data-bs-interval="3000">
+                <img src="imagenesCarrusel/asado.jpg" class="d-block w-100" alt="..." height="300px">
                 </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                    <img src="imagenesCarrusel/asado1.jpg" class="d-block w-100" alt="..." height="300px">
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="imagenesCarrusel/asado1.png" class="d-block w-100 h-300" alt="..." height="300px">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" data-bs-interval="3000">
                     <img src="imagenesCarrusel/asado2.jpg" class="d-block w-100" alt="..." height="300px">
                 </div>
-                <div class="carousel-item">
-                    <img src="imagenesCarrusel/asado3.jpg" class="d-block w-100" alt="..." height="300px">
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="imagenesCarrusel/asado3.png" class="d-block w-100 h-300" alt="..." height="300px">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
@@ -221,6 +222,80 @@
         </script>
 
     <script>
+        // Configuración de búsqueda - SIMPLIFICADA
+        const searchConfig = {
+            'index.html': [
+                { term: 'inicio', page: 'index.html' },
+                { term: 'nosotros', page: 'index.html', section: 'mision' },
+                { term: 'misión', page: 'index.html', section: 'mision' },
+                { term: 'visión', page: 'index.html', section: 'mision' },
+                { term: 'galería', page: 'index.html', section: 'galeria' },
+                { term: 'sobre nosotros', page: 'index.html', section: 'sobre-nosotros' }
+            ],
+            'menu.html': [
+                { term: 'menú', page: 'menu.html' },
+                { term: 'comida', page: 'menu.html' },
+                { term: 'platos', page: 'menu.html' },
+                { term: 'carnes', page: 'menu.html' }
+            ],
+            'reservas.html': [
+                { term: 'reservas', page: 'reservas.html' },
+                { term: 'reservar', page: 'reservas.html' },
+                { term: 'mesa', page: 'reservas.html' }
+            ],
+            'domicilios.html': [
+                { term: 'domicilios', page: 'domicilios.html' },
+                { term: 'delivery', page: 'domicilios.html' }
+            ],
+            'Pagina4.html': [
+                { term: 'acordeón', page: 'Pagina4.html' },
+                { term: 'preguntas', page: 'Pagina4.html' }
+            ]
+        };
+
+        // Función de búsqueda simplificada
+        function handleSearch(event) {
+            event.preventDefault();
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+
+            if (!searchTerm) return;
+
+            let found = false;
+
+            // Buscar en todas las páginas
+            for (const page in searchConfig) {
+                for (const item of searchConfig[page]) {
+                    if (item.term.includes(searchTerm) || searchTerm.includes(item.term)) {
+                        navigateToPage(item.page, item.section);
+                        found = true;
+                        return;
+                    }
+                }
+            }
+
+            if (!found) {
+                alert('No se encontraron resultados para: "' + searchTerm + '"\n\nIntenta con: menú, reservas, domicilios, galería');
+            }
+        }
+
+        function navigateToPage(page, section) {
+            const currentPage = window.location.pathname.split('/').pop();
+
+            if (currentPage === page) {
+                // Misma página, scroll a la sección
+                if (section && document.getElementById(section)) {
+                    document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                // Diferente página, redirigir
+                window.location.href = page + (section ? '#' + section : '');
+            }
+        }
+
+        // Agregar event listener al formulario
+        document.getElementById('searchForm').addEventListener('submit', handleSearch);
+
+        // TUS FUNCIONES ORIGINALES (sin cambios)
         let audioActivo = false;
 
         function toggleAudio() {
@@ -237,10 +312,7 @@
                 audioActivo = false;
             }
         }
-    </script>
 
-    <script>
-        // Función para mostrar/ocultar el aside
         function toggleAside() {
             const aside = document.getElementById('restaurantAside');
             const toggleBtn = document.querySelector('.aside-toggle-btn');
@@ -249,7 +321,6 @@
             aside.classList.toggle('hidden');
             contentWrapper.classList.toggle('aside-hidden');
 
-            // Cambiar el icono del botón flotante
             const icon = toggleBtn.querySelector('i');
             if (aside.classList.contains('hidden')) {
                 icon.className = 'fas fa-fire';
@@ -258,7 +329,6 @@
             }
         }
 
-        // Cerrar aside al hacer clic fuera de él (solo en móviles)
         document.addEventListener('click', function (event) {
             const aside = document.getElementById('restaurantAside');
             const toggleBtn = document.querySelector('.aside-toggle-btn');
@@ -270,7 +340,6 @@
             }
         });
 
-        // Cerrar aside con la tecla Escape
         document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
                 const aside = document.getElementById('restaurantAside');
