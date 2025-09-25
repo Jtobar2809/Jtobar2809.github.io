@@ -5,6 +5,12 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.bodyAcordeon{
+    color: white;
+    background-color: rgb(0, 35, 233);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 /* ===== HEADER Y NAVEGACIÓN ===== */
 header {
     background-color: rgb(141, 36, 36);
